@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BinaryShop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="split-container">
+        <!-- Lado izquierdo: login con morado semi oscuro -->
+        <div class="login-side">
+            <div class="page-container">
+                <h1 class="page-title">BinaryShop</h1>
+                <div class="login-container">
+                    <h1 id="panel-title">Inicio de sesión</h1>
+                    <form id="input-login-form">
+                        <div class="input-container">
+                            <label for="input-user" class="input-labels">Usuario</label>
+                            <input
+                                name="input-user"
+                                class="inp"
+                                type="text"
+                                id="input-user"
+                                minlength="5"
+                                maxlength="20">
+                        </div>
+                        <div class="input-container">
+                            <label for="input-password" class="input-labels">Contraseña</label>
+                            <input
+                                name="input-password"
+                                id="input-password"
+                                class="inp"
+                                type="password"
+                                minlength="7"
+                                maxlength="24">
+                        </div>
+                        <div class="input-container">
+                            <button class="btn" type="submit">Iniciar sesión</button>
+                            <a href="#">¿Olvidaste tu contraseña?</a>
+                            <button class="btn" type="button">Crear cuenta</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="bg-side"></div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
