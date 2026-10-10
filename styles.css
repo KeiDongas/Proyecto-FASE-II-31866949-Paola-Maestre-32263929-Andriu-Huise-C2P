@@ -17,15 +17,16 @@ body {
     min-height: 100vh;
 }
 
-/* Lado izquierdo: login con morado semi oscuro */
+/* lado del login abusado */
 .login-side {
     width: 45%;
-    background: linear-gradient(135deg, #1E1E1E 0%, #221724, #2E1134 100%);
+    background: linear-gradient(135deg, #1E1E1E 0%, #311d35, #51115e 100%);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 40px;
-    overflow-y: auto;
+    z-index: 2;
+    box-shadow: 20px 0 40px rgba(0, 0, 0, 0.67);
 }
 
 /* Lado derecho: fondo visible */
