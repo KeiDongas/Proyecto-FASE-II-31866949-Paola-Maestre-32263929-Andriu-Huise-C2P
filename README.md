@@ -2,7 +2,7 @@
 Proyecto de Introduccion A la Informatica :)
 
 <-Logueo->
-usuario - contraseña:
-  Admin - admin
-  Buyer - 12345
-  Seller - 12345
+usuario - contraseña: \n
+  Admin - admin \n
+  Buyer - 12345 \n
+  Seller - 12345 \n
