@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BinaryShop</title>
+    <title>BinaryShop - Autenticación</title>
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
     <div class="split-container">
         
-        <!-- Lado izquierdo: login con morado semi oscuro -->
+        <!-- Lado izquierdo: Login y Registro unificados -->
         <div class="login-side">
             <div class="page-container">
                 <h1 class="page-title">BinaryShop</h1>
-                <div class="login-container">
-                    <h1 id="panel-title">Inicio de sesión</h1>
+
+                <!-- Login -->
+                <div class="login-container" id="login-box">
+                    <h1 class="panel-title">Inicio de sesión</h1>
                     <form id="input-login-form">
                         <div class="input-container">
                             <label for="input-user" class="input-labels">Usuario</label>
@@ -37,18 +39,76 @@
                                 maxlength="24">
                         </div>
                         <div class="input-container">
+                            <label for="input-role" class="input-labels">Rol de usuario</label>
+                            <select id="input-role" class="inp">
+                                <option value="Buyer">Comprador (Buyer)</option>
+                                <option value="Seller">Vendedor (Seller)</option>
+                                <option value="Administrator">Administrador (Admin)</option>
+                            </select>
+                        </div>
+                        <div class="input-container">
                             <button class="btn" type="button" id="lgn_btn" onclick="Login()">Iniciar sesión</button>
                             <a href="#">¿Olvidaste tu contraseña?</a>
-                            <button class="btn" type="button">Crear cuenta</button>
+                            <!-- boton para cambiar a la vista de Registro -->
+                            <button class="btn" type="button" onclick="showForm('register')">Crear cuenta</button>
                         </div>
                     </form>
                 </div>
+
+                <!--Register-->
+                <div class="login-container" id="register-box" style="display: none;">
+                    <h1 class="panel-title">Crear Cuenta</h1>
+                    <form id="input-register-form">
+                        <div class="input-container">
+                            <label for="reg-user" class="input-labels">Nuevo Usuario</label>
+                            <input
+                                name="reg-user"
+                                class="inp"
+                                type="text"
+                                id="reg-user"
+                                minlength="5"
+                                maxlength="20">
+                        </div>
+                        <div class="input-container">
+                            <label for="reg-password" class="input-labels">Contraseña</label>
+                            <input
+                                name="reg-password"
+                                id="reg-password"
+                                class="inp"
+                                type="password"
+                                minlength="5"
+                                maxlength="24">
+                        </div>
+                        <div class="input-container">
+                            <label for="reg-address" class="input-labels">Dirección / Ubicación</label>
+                            <input
+                                name="reg-address"
+                                id="reg-address"
+                                class="inp"
+                                type="text">
+                        </div>
+                        <div class="input-container">
+                            <label for="reg-role" class="input-labels">Rol de usuario</label>
+                            <select id="reg-role" class="inp">
+                                <option value="Buyer">Comprador (Buyer)</option>
+                                <option value="Seller">Vendedor (Seller)</option>
+                            </select>
+                        </div>
+                        <div class="input-container">
+                            <button class="btn" type="button" onclick="alert('¡Cuenta creada exitosamente! Inicia sesión.'); showForm('login');">Registrarse</button>
+                            <button class="btn" type="button" onclick="showForm('login')">¿Ya tienes cuenta? Iniciar sesión</button>
+                        </div>
+                    </form>
+                </div>
+
             </div>
         </div>
+
+        <!-- Lado derecho: Fondo visual -->
         <div class="bg-side">
-            <h1 class="welcome-title">¡Hola!, ¡que bueno volver a <br>verte!</h1>
+            <h1 class="welcome-title" id="welcome-text">¡Hola!, ¡qué bueno volver a <br>verte!</h1>
         </div>
     </div>
+    <script src="js/login-register.js"></script>
 </body>
-<script src="js/login.js"></script>
 </html>

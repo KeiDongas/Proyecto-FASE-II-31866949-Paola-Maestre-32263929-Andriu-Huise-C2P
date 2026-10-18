@@ -9,66 +9,82 @@ body {
     font-family: Arial, sans-serif;
     color: white;
     min-height: 100vh;
+    min-height: 100dvh;
+    background-image: url("../assets/login/background.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #1C1326;
 }
 
-/* Contenedor principal: dos columnas */
+/* Contenedor principal: dos columnas completas en PC */
 .split-container {
     display: flex;
     min-height: 100vh;
+    min-height: 100dvh;
+    width: 100%;
 }
 
-/* lado del login abusado */
 .login-side {
-    width: 45%;
-    background-color: #1C1326;
+    width: 42%;
+    min-height: 100vh;
+    background-color: rgba(28, 19, 38, 0.88); /* Morado semi-transparente */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 40px;
     z-index: 2;
-    box-shadow: 20px 0 40px rgba(0, 0, 0, 0.67);
+    box-shadow: 20px 0 40px rgba(0, 0, 0, 0.5);
+    border-right: 3px solid rgba(255, 255, 255, 0.178);
 }
 
-.welcome-title{
-    font-size: 4rem;
-    margin-top: 350px;
-}
-
-/* Lado derecho: fondo visible */
 .bg-side {
-    width: 60%;
-    background-image: url("../assets/login/background.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    justify-items: center;
+    width: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
 }
 
-/* Contenedor del formulario */
+.welcome-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    line-height: 1.2;
+}
+
+
 .page-container {
     width: 100%;
     max-width: 350px;
 }
 
-/* Título BinaryShop */
+/* Títulos */
 .page-title {
-    margin: 0 0 20px 0;
+    margin: 0 0 10px 0;
     color: white;
     text-align: center;
     font-size: 1.8rem;
+    font-weight: bold;
 }
 
-/* Contenedor del login */
+.welcome-title-mobile {
+    display: none;
+}
+
 .login-container {
     text-align: center;
 }
 
 #panel-title {
     margin-bottom: 20px;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    color: #e0e0e0;
 }
 
-/* Cada campo: label + input */
 .input-container {
     display: flex;
     flex-direction: column;
@@ -79,77 +95,124 @@ body {
 .input-labels {
     text-align: left;
     font-size: 0.9rem;
-    color: white;
+    color: #d1d1d1;
 }
 
-/* Inputs */
 .inp {
     display: block;
     width: 100%;
     padding: 10px 12px;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
-    background-color: whitesmoke;
-    color: black;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #111;
     text-align: center;
     font: inherit;
+    font-size: 0.95rem;
     outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .inp:focus {
-    outline: 2px solid #642D73;
-    outline-offset: 2px;
+    outline: none;
+    border-color: #F291A3;
+    box-shadow: 0 0 0 3px rgba(242, 145, 163, 0.35);
 }
 
-/* Botones */
+/* Selector de roles */
+select.inp {
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+/* Estilo unificado de botones */
 .btn {
     display: block;
     width: 100%;
     margin-top: 10px;
     padding: 10px 20px;
     border-radius: 12px;
-    border: none;
     cursor: pointer;
     font: inherit;
-    background-color: rgba(0, 0, 0, 0);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
     border: 2px solid white;
-    color: black;
-    transition: background-color 0.2s;
+    background-color: transparent;
+    color: white;
 }
 
-.btn:first-child{
+/* Botón principal (Iniciar Sesión / Registrarse) */
+.btn:first-child {
     background-color: #F291A3;
+    border: none;
+    color: #1C1326;
+    box-shadow: 0 4px 15px rgba(242, 145, 163, 0.3);
 }
 
-.btn:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+.btn:first-child:hover {
+    background-color: #e07f91;
+    box-shadow: 0 6px 20px rgba(242, 145, 163, 0.45);
+}
+
+/* Botones secundarios (Crear cuenta / Volver a login) */
+.btn:not(:first-child):hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.btn:active {
+    transform: scale(0.98);
 }
 
 /* Enlaces */
 a {
-    color: white;
+    color: #e0e0e0;
     text-decoration: none;
     display: block;
     margin-top: 10px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 a:hover {
+    color: white;
     text-decoration: underline;
 }
 
-/* Responsive */
+/* ==========================================
+   ADAPTACIÓN RESPONSIVE PARA CELULARES
+   ========================================== */
 @media (max-width: 768px) {
     .split-container {
-        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
     }
-    .login-side,
+
     .bg-side {
+        display: none;
+    }
+
+    /* En teléfono pasa a ser una tarjeta centrada con bordes redondeados */
+    .login-side {
         width: 100%;
+        max-width: 380px;
+        min-height: auto;
+        border-radius: 20px;
+        padding: 30px 22px;
+        border-right: none;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
     }
-    .bg-side {
-        min-height: 200px;
+
+    .welcome-title-mobile {
+        display: block;
+        font-size: 1rem;
+        color: #d1d1d1;
+        text-align: center;
+        margin-bottom: 20px;
     }
 }
-
-/*rompe el codigo paola vuelvelo popo*/
