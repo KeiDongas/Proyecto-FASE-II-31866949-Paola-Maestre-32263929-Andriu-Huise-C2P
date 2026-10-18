@@ -20,7 +20,7 @@ body {
 /* lado del login abusado */
 .login-side {
     width: 45%;
-    background: linear-gradient(135deg, #1E1E1E 0%, #311d35, #51115e 100%);
+    background-color: #1C1326;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,13 +29,19 @@ body {
     box-shadow: 20px 0 40px rgba(0, 0, 0, 0.67);
 }
 
+.welcome-title{
+    font-size: 4rem;
+    margin-top: 350px;
+}
+
 /* Lado derecho: fondo visible */
 .bg-side {
     width: 60%;
-    background-image: url("assets/login/background.webp");
+    background-image: url("../assets/login/background.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    justify-items: center;
 }
 
 /* Contenedor del formulario */
@@ -91,7 +97,7 @@ body {
 }
 
 .inp:focus {
-    outline: 2px solid white;
+    outline: 2px solid #642D73;
     outline-offset: 2px;
 }
 
@@ -101,17 +107,22 @@ body {
     width: 100%;
     margin-top: 10px;
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 12px;
     border: none;
     cursor: pointer;
     font: inherit;
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid white;
     color: black;
     transition: background-color 0.2s;
 }
 
+.btn:first-child{
+    background-color: #F291A3;
+}
+
 .btn:hover {
-    background-color: #ddd;
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 /* Enlaces */

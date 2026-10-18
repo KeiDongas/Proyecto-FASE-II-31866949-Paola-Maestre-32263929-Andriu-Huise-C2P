@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BinaryShop</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
     <div class="split-container">
+        
         <!-- Lado izquierdo: login con morado semi oscuro -->
         <div class="login-side">
             <div class="page-container">
@@ -32,11 +33,11 @@
                                 id="input-password"
                                 class="inp"
                                 type="password"
-                                minlength="7"
+                                minlength="5"
                                 maxlength="24">
                         </div>
                         <div class="input-container">
-                            <button class="btn" type="submit">Iniciar sesión</button>
+                            <button class="btn" type="button" id="lgn_btn" onclick="Login()">Iniciar sesión</button>
                             <a href="#">¿Olvidaste tu contraseña?</a>
                             <button class="btn" type="button">Crear cuenta</button>
                         </div>
@@ -44,8 +45,10 @@
                 </div>
             </div>
         </div>
-        <div class="bg-side"></div>
+        <div class="bg-side">
+            <h1 class="welcome-title">¡Hola!, ¡que bueno volver a <br>verte!</h1>
+        </div>
     </div>
 </body>
-<script src="script.js"></script>
+<script src="js/login.js"></script>
 </html>

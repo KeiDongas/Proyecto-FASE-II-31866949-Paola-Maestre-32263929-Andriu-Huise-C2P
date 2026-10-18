@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #12101e;
+    color: #ffffff;
+}
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    
+    width: 250px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    background-color: #1e1a2e;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.brand {
+    font-size: 1.8rem;
+    color: #e91e63;
+    margin-bottom: 30px;
+}
+
+.nav-menu {
+  
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-item {
+    color: #a092b7;
+    text-decoration: none;
+    padding: 12px 15px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.nav-item:hover, .nav-item.active {
+    background-color: #2e2646;
+    color: #fff;
+}
+
+.logout-btn {
+    color: #ff5252;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: rgba(255, 82, 82, 0.1);
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.welcome-text h1 {
+    font-size: 1.8rem;
+}
+
+.welcome-text p {
+    color: #a092b7;
+}
+
+.user-avatar {
+    width: 45px;
+    height: 45px;
+    background-color: #e91e63;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Cards & Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background-color: #1e1a2e;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #2e2646;
+}
+
+.stat-card h3 {
+    font-size: 0.9rem;
+    color: #a092b7;
+    margin-bottom: 10px;
+}
+
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #e91e63;
+}
+
+/* Products */
+.products-section h2 {
+    margin-bottom: 20px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background-color: #1e1a2e;
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid #2e2646;
+}
+
+.product-image {
+    height: 140px;
+    background-color: #2e2646;
+    border-radius: 8px;
+    /* Puedes usar una imagen de fondo aquí con:
+       background-image: url('../assets/products/teclado.jpg'); 
+       background-size: cover; */
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4caf50;
+}
+
+.add-btn {
+    background-color: #e91e63;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.add-btn:hover {
+    background-color: #c2185b;
+}

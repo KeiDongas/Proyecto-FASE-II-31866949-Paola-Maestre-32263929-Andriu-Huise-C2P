@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BinaryShop - Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Barra lateral de navegación -->
+        <aside class="sidebar">
+            <h2 class="brand">BinaryShop</h2>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active">Inicio</a>
+                <a href="#" class="nav-item">Productos</a>
+                <a href="#" class="nav-item">Carrito</a>
+                <a href="#" class="nav-item">Pedidos</a>
+                <a href="#" class="nav-item">Configuración</a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" class="logout-btn">Cerrar Sesión</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="welcome-text">
+                    <h1>Bienvenido de nuevo, <span id="username-display"></span></h1>
+                    <p>Revisa las últimas ofertas y productos disponibles.</p>
+                </div>
+                <div class="user-profile">
+                    <span class="user-avatar">A</span>
+                </div>
+            </header>
+
+            <!-- Sección de Estadísticas / Resumen rápido -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <h3>Productos Disponibles</h3>
+                    <p class="stat-number">124</p>
+                </div>
+                <div class="stat-card">
+                    <h3>En el Carrito</h3>
+                    <p class="stat-number">3</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Órdenes Completadas</h3>
+                    <p class="stat-number">12</p>
+                </div>
+            </section>
+
+            <!-- Sección del Catálogo de Productos -->
+            <section class="products-section">
+                <h2>Productos Destacados</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image"></div>
+                        <h3>Teclado Mecánico RGB</h3>
+                        <p class="price">$45.00</p>
+                        <button class="add-btn">Agregar al carrito</button>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"></div>
+                        <h3>Mouse Gamer 16000 DPI</h3>
+                        <p class="price">$25.00</p>
+                        <button class="add-btn">Agregar al carrito</button>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"></div>
+                        <h3>Monitor 144Hz 24"</h3>
+                        <p class="price">$180.00</p>
+                        <button class="add-btn">Agregar al carrito</button>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"></div>
+                        <h3>Teclado Mecánico RGB</h3>
+                        <p class="price">$45.00</p>
+                        <button class="add-btn">Agregar al carrito</button>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"></div>
+                        <h3>Mouse Gamer 16000 DPI</h3>
+                        <p class="price">$25.00</p>
+                        <button class="add-btn">Agregar al carrito</button>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"></div>
+                        <h3>Monitor 144Hz 24"</h3>
+                        <p class="price">$180.00</p>
+                        <button class="add-btn">Agregar al carrito</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
