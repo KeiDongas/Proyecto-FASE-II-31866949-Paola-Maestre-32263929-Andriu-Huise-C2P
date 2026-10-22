@@ -266,7 +266,6 @@ function renderCartItems(containerId, totalPriceId) {
 function removeFromCart(index) {
     cart.splice(index, 1);
     updateCartBadge();
-    renderCartPage();
     renderCartModal();
 }
 
