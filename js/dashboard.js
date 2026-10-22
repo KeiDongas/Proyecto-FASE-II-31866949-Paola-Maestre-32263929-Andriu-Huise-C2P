@@ -90,6 +90,9 @@ function renderProducts() {
     const productsGrid = document.querySelector(".products-grid");
     if (!productsGrid) return;
 
+    const countEl = document.getElementById("available-products-count");
+    if (countEl) countEl.textContent = catalog.length;
+
     productsGrid.innerHTML = "";
 
     catalog.forEach((product) => {
@@ -114,7 +117,7 @@ function renderProducts() {
             <div class="product-image" style="${product.img ? `background-image: url('${product.img}'); background-size: contain; background-position: center; background-repeat: no-repeat;` : ''}"></div>
             <h3>${product.name}</h3>
             <p class="price">${product.getFormattedPrice()}</p>
-            <small style="color: #d1d1d1; display: block; margin-bottom: 8px;">Vendedor: ${product.owner}</small>
+            <small style="color: #d1d1d1; display: block; margin-bottom: 8px; cursor: pointer; text-decoration: underline;" onclick="deleteSellerAccount('${product.owner}')">Vendedor: ${product.owner}</small>
             ${actionButtonsHTML}
         `;
 
@@ -140,6 +143,17 @@ function addToCart(productId, buttonElement) {
             buttonElement.style.color = "#1C1326";
         }, 1000);
     }
+}
+
+function deleteSellerAccount(sellerName) {
+    if (userRol !== "Administrator") {
+        alert("Solo el administrador puede eliminar cuentas de vendedores.");
+        return;
+    }
+    if (!confirm(`¿Eliminar cuenta del vendedor "${sellerName}" y todos sus productos?`)) return;
+    catalog = catalog.filter(item => item.owner !== sellerName);
+    saveCatalog();
+    renderProducts();
 }
 
 function deleteProduct(productId) {
