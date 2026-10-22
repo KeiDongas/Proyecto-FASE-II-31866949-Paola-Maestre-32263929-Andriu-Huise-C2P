@@ -27,24 +27,55 @@ const initialCatalog = [
     new Product(1, "Teclado Mecánico RGB", 45.00, "../assets/products/teclado.jpg", 10, "Seller"),
     new Product(2, "Mouse Gamer 16000 DPI", 25.50, "../assets/products/mouse.jpg", 15, "Seller"),
     new Product(3, "Audífonos Inalámbricos", 60.00, "../assets/products/audifonos.jpg", 8, "Admin"),
-    new Product(4, "Monitor 144Hz IPS", 180.00, "../assets/products/monitor.jpg", 5, "Admin")
+    new Product(4, "Monitor 144Hz IPS", 180.00, "../assets/products/monitor.jpg", 5, "Admin"),
+    new Product(5, "Notebook Gaming", 800.00, "../assets/products/notebook.webp", 3, "Admin"),
+    new Product(6, "Silla Gamer Ergonómica", 150.00, "../assets/products/silla.jpg", 7, "Seller"),
+    new Product(7, "Tarjeta Gráfica RTX 5090", 700.00, "../assets/products/rtx-5090.webp", 2, "Admin"),
+    new Product(8, "Procesador Intel i9", 500.00, "../assets/products/procesador.webp", 4, "Admin"),
+    new Product(9, "Placa Base ATX", 120.00, "../assets/products/placa.jpg", 6, "Seller"),
+    new Product(10, "Fuente de Poder 750W", 90.00, "../assets/products/fuente.webp", 5, "Seller"),
+    new Product(11, "Disco Duro SSD 1TB", 110.00, "../assets/products/ssd.webp", 12, "Admin"),
+    new Product(12, "Memoria RAM 16GB", 80.00, "../assets/products/ram.jpg", 20, "Admin")
 ];
+
+let catalogIdCounter = 100;
 
 let catalog = loadCatalog();
 
 function loadCatalog() {
-    const savedCatalog = sessionStorage.getItem("catalogDB");
+    const savedCatalog = localStorage.getItem("catalogDB");
     if (savedCatalog) {
         const parsed = JSON.parse(savedCatalog);
+        parsed.forEach(p => { if (typeof p.id === "number") catalogIdCounter = Math.max(catalogIdCounter, p.id + 1); });
         return parsed.map(p => new Product(p.id, p.name, p.price, p.img, p.stock, p.owner));
     } else {
-        sessionStorage.setItem("catalogDB", JSON.stringify(initialCatalog));
+        localStorage.setItem("catalogDB", JSON.stringify(initialCatalog));
         return [...initialCatalog];
     }
 }
 
 function saveCatalog() {
-    sessionStorage.setItem("catalogDB", JSON.stringify(catalog));
+    localStorage.setItem("catalogDB", JSON.stringify(catalog));
+}
+
+function publishArticle() {
+    const name = document.getElementById("pub-name").value.trim();
+    const price = parseFloat(document.getElementById("pub-price").value);
+    const stock = parseInt(document.getElementById("pub-stock").value, 10);
+    const img = document.getElementById("pub-img").value.trim();
+
+    if (!name || isNaN(price) || isNaN(stock)) {
+        alert("Completa todos los campos correctamente.");
+        return;
+    }
+
+    const newProduct = new Product(catalogIdCounter++, name, price, img || "../assets/products/teclado.jpg", stock, userLogged);
+    catalog.push(newProduct);
+    saveCatalog();
+    renderProducts();
+    document.getElementById("publish-form").reset();
+    alert("Artículo publicado y guardado.");
+    showSection('home');
 }
 
 // Estado global del carrito del comprador
@@ -118,6 +149,27 @@ function addToCart(productId, buttonElement) {
     }
 }
 
+function deleteProduct(productId) {
+    const product = catalog.find((item) => item.id === productId);
+    if (!product) {
+        alert("El artículo ya no está disponible.");
+        return;
+    }
+
+    const canDelete = userRol === "Administrator"
+        || (userRol === "Seller" && product.owner === userLogged);
+    if (!canDelete) {
+        alert("No tienes permiso para eliminar este artículo.");
+        return;
+    }
+
+    if (!confirm(`¿Seguro que deseas eliminar "${product.name}"?`)) return;
+
+    catalog = catalog.filter((item) => item.id !== productId);
+    saveCatalog();
+    renderProducts();
+}
+
 // Actualizar contador del carrito
 function updateCartBadge() {
     const menuCartCount = document.getElementById("menu-cart-count");
@@ -129,6 +181,11 @@ function updateCartBadge() {
     if (dashboardCartCount) {
         dashboardCartCount.textContent = cart.length;
     }
+
+    const floatCartCount = document.getElementById("float-cart-count");
+    if (floatCartCount) {
+        floatCartCount.textContent = cart.length;
+    }
 }
 
 //-------------- LÓGICA Y MODAL DEL CARRITO --------------//
@@ -137,7 +194,7 @@ function toggleCartModal() {
     if (!modal) return;
 
     if (modal.style.display === "none" || modal.style.display === "") {
-        renderCartItems();
+        renderCartModal();
         modal.style.display = "flex";
     } else {
         modal.style.display = "none";
@@ -166,13 +223,21 @@ function showSection(sectionName) {
 
     // Si entra a la seccion del carrito actualiza la vista
     if (sectionName === 'cart') {
-        renderCartPage();
+        toggleCartModal();
     }
 }
 
-function renderCartItems() {
-    const container = document.getElementById("cart-items-container");
-    const totalPriceElement = document.getElementById("cart-total-price");
+function renderCartPage() {
+    renderCartItems("cart-page-container", "cart-total-price");
+}
+
+function renderCartModal() {
+    renderCartItems("cart-items-container", "modal-cart-total-price");
+}
+
+function renderCartItems(containerId, totalPriceId) {
+    const container = document.getElementById(containerId);
+    const totalPriceElement = document.getElementById(totalPriceId);
     if (!container || !totalPriceElement) return;
 
     container.innerHTML = "";
@@ -208,7 +273,8 @@ function renderCartItems() {
 function removeFromCart(index) {
     cart.splice(index, 1);
     updateCartBadge();
-    renderCartItems();
+    renderCartPage();
+    renderCartModal();
 }
 
 function checkout() {
@@ -220,12 +286,17 @@ function checkout() {
     alert(`¡Gracias por tu compra, ${userLogged}! Procesando pedido...`);
     cart = [];
     updateCartBadge();
-    toggleCartModal();
+    renderCartModal();
+
+    const modal = document.getElementById("cart-modal");
+    if (modal) {
+        modal.style.display = "none";
+    }
 }
 
 //-------------- CERRAR SESIÓN --------------//
 function logOut() {
-    sessionStorage.removeItem("catalogDB");
+    localStorage.removeItem("catalogDB");
     localStorage.removeItem("userLogged");
     localStorage.removeItem("userRol");
     window.location.href = "index.html";

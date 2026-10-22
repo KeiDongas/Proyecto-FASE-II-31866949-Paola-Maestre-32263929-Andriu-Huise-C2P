@@ -163,10 +163,11 @@ body {
 
 .product-image {
     height: 140px;
-    background-color: rgba(255, 255, 255, 0.08);
+    background-color: rgb(255, 255, 255);
     border-radius: 8px;
     background-image: url('../assets/products/teclado.jpg'); 
-    background-size: cover;
+
+    background-size: auto;
     
 }
 
@@ -320,4 +321,36 @@ body {
     width: 100%;
     padding: 12px;
     font-size: 1rem;
+}
+
+/* Estilos para formularios (reutilizados del login) */
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+.input-labels {
+    text-align: left;
+    font-size: 0.9rem;
+    color: #d1d1d1;
+}
+.inp {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #111;
+    text-align: left;
+    font: inherit;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.inp:focus {
+    outline: none;
+    border-color: #F291A3;
+    box-shadow: 0 0 0 3px rgba(242, 145, 163, 0.35);
 }
