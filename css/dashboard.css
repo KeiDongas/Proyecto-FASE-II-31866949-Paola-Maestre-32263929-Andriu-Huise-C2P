@@ -165,10 +165,10 @@ body {
     height: 140px;
     /*background-color: rgb(255, 255, 255);*/
     border-radius: 8px;
-    background-image: url('../assets/products/teclado.jpg'); 
-
-    background-size: auto;
-    
+    background-image: url('../assets/products/teclado.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .price {

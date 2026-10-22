@@ -111,7 +111,7 @@ function renderProducts() {
         }
 
         card.innerHTML = `
-            <div class="product-image" style="${product.img ? `background-image: url('${product.img}'); background-size: cover;` : ''}"></div>
+            <div class="product-image" style="${product.img ? `background-image: url('${product.img}'); background-size: contain; background-position: center; background-repeat: no-repeat;` : ''}"></div>
             <h3>${product.name}</h3>
             <p class="price">${product.getFormattedPrice()}</p>
             <small style="color: #d1d1d1; display: block; margin-bottom: 8px;">Vendedor: ${product.owner}</small>
