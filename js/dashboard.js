@@ -34,7 +34,7 @@ const initialCatalog = [
     new Product(8, "Procesador Intel i9", 500.00, "../assets/products/procesador.webp", 4, "Seller"),
     new Product(9, "Placa Base ATX", 120.00, "../assets/products/placa.jpg", 6, "Seller"),
     new Product(10, "Fuente de Poder 750W", 90.00, "../assets/products/fuente.webp", 5, "Seller"),
-    new Product(11, "Disco Duro SSD 1TB", 110.00, "../assets/products/ssd.webp", 12, "Admin"),
+    new Product(11, "Disco Duro SSD 1TB", 110.00, "../assets/products/ssd.webp", 12, "Paola"),
     new Product(12, "Memoria RAM 16GB", 80.00, "../assets/products/ram.jpg", 20, "Paola")
 ];
 
