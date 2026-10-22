@@ -24,18 +24,18 @@ class Product {
 
 // Catálogo base
 const initialCatalog = [
-    new Product(1, "Teclado Mecánico RGB", 45.00, "assets/products/teclado.jpg", 10, "Seller"),
-    new Product(2, "Mouse Gamer 16000 DPI", 25.50, "assets/products/mouse.jpg", 15, "Seller"),
-    new Product(3, "Audífonos Inalámbricos", 60.00, "assets/products/audifonos.jpg", 8, "Seller"),
-    new Product(4, "Monitor 144Hz IPS", 180.00, "assets/products/monitor.jpg", 5, "Seller"),
-    new Product(5, "Notebook Gaming", 800.00, "assets/products/notebook.webp", 3, "Seller"),
-    new Product(6, "Silla Gamer Ergonómica", 150.00, "assets/products/silla.jpg", 7, "Seller"),
-    new Product(7, "Tarjeta Gráfica RTX 5090", 700.00, "assets/products/rtx-5090.webp", 2, "Seller"),
-    new Product(8, "Procesador Intel i9", 500.00, "assets/products/procesador.webp", 4, "Seller"),
-    new Product(9, "Placa Base ATX", 120.00, "assets/products/placa.jpg", 6, "Seller"),
-    new Product(10, "Fuente de Poder 750W", 90.00, "assets/products/fuente.webp", 5, "Seller"),
-    new Product(11, "Disco Duro SSD 1TB", 110.00, "assets/products/ssd.webp", 12, "Admin"),
-    new Product(12, "Memoria RAM 16GB", 80.00, "assets/products/ram.jpg", 20, "Paola")
+    new Product(1, "Teclado Mecánico RGB", 45.00, "/assets/products/teclado.jpg", 10, "Seller"),
+    new Product(2, "Mouse Gamer 16000 DPI", 25.50, "/assets/products/mouse.jpg", 15, "Seller"),
+    new Product(3, "Audífonos Inalámbricos", 60.00, "/assets/products/audifonos.jpg", 8, "Seller"),
+    new Product(4, "Monitor 144Hz IPS", 180.00, "/assets/products/monitor.jpg", 5, "Seller"),
+    new Product(5, "Notebook Gaming", 800.00, "/assets/products/notebook.webp", 3, "Seller"),
+    new Product(6, "Silla Gamer Ergonómica", 150.00, "/assets/products/silla.jpg", 7, "Seller"),
+    new Product(7, "Tarjeta Gráfica RTX 5090", 700.00, "/assets/products/rtx-5090.webp", 2, "Seller"),
+    new Product(8, "Procesador Intel i9", 500.00, "/assets/products/procesador.webp", 4, "Seller"),
+    new Product(9, "Placa Base ATX", 120.00, "/assets/products/placa.jpg", 6, "Seller"),
+    new Product(10, "Fuente de Poder 750W", 90.00, "/assets/products/fuente.webp", 5, "Seller"),
+    new Product(11, "Disco Duro SSD 1TB", 110.00, "/assets/products/ssd.webp", 12, "Admin"),
+    new Product(12, "Memoria RAM 16GB", 80.00, "/assets/products/ram.jpg", 20, "Paola")
 ];
 
 let catalogIdCounter = 100;
@@ -62,7 +62,7 @@ function publishArticle() {
         return;
     }
 
-    const newProduct = new Product(catalogIdCounter++, name, price, img || "assets/products/teclado.jpg", stock, userLogged);
+    const newProduct = new Product(catalogIdCounter++, name, price, img || "/assets/products/teclado.jpg", stock, userLogged);
     catalog.push(newProduct);
     saveCatalog();
     renderProducts();
