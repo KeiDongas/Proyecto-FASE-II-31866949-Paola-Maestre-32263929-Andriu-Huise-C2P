@@ -1,4 +1,4 @@
-// Validar inicio de sesión
+
 const userLogged = localStorage.getItem("userLogged");
 const userRol = localStorage.getItem("userRol");
 
@@ -6,7 +6,7 @@ if (!userLogged) {
     window.location.href = "index.html";
 }
 
-//-------------- CLASE PRODUCTO --------------//
+
 class Product {
     constructor(id, name, price, img, stock, owner = "Admin") {
         this.id = id;
@@ -22,7 +22,7 @@ class Product {
     }
 }
 
-// Catálogo base
+
 const initialCatalog = [
     new Product(1, "Teclado Mecánico RGB", 45.00, "assets/products/teclado.jpg", 10, "Seller"),
     new Product(2, "Mouse Gamer 16000 DPI", 25.50, "assets/products/mouse.jpg", 15, "Seller"),
@@ -75,17 +75,17 @@ function publishArticle() {
     showSection('home');
 }
 
-// Estado global del carrito del comprador
+
 let cart = [];
 
-//-------------- EVENTO DOM CONTENT LOADED --------------//
+
 document.addEventListener("DOMContentLoaded", () => {
     const usernameElement = document.getElementById("username-display");
     if (usernameElement) {
         usernameElement.textContent = userLogged;
     }
 
-    // Solo el vendedor ve la opción de publicar
+    
     const navPublish = document.getElementById("nav-publish");
     if (navPublish && userRol !== "Seller") {
         navPublish.style.display = "none";
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCartBadge();
 });
 
-//-------------- LOGICA DEL DASHBOARD Y PRODUCTOS --------------//
+
 function renderProducts() {
     const productsGrid = document.querySelector(".products-grid");
     if (!productsGrid) return;
@@ -135,7 +135,7 @@ function renderProducts() {
     });
 }
 
-// Agregar producto al carrito
+
 function addToCart(productId, buttonElement) {
     const productFound = catalog.find((p) => p.id === productId);
 
@@ -187,7 +187,7 @@ function deleteProduct(productId) {
     renderProducts();
 }
 
-// Actualizar contador del carrito
+
 function updateCartBadge() {
     const menuCartCount = document.getElementById("menu-cart-count");
     if (menuCartCount) {
@@ -205,7 +205,7 @@ function updateCartBadge() {
     }
 }
 
-//-------------- LÓGICA Y MODAL DEL CARRITO --------------//
+
 function toggleCartModal() {
     const modal = document.getElementById("cart-modal");
     if (!modal) return;
@@ -219,15 +219,15 @@ function toggleCartModal() {
 }
 
 function showSection(sectionName) {
-    // Ocultar todas las secciones
+    
     const sections = document.querySelectorAll('.content-section');
     sections.forEach(sec => sec.style.display = 'none');
 
-    // Desmarcar todos los enlaces del menú
+    
     const navItems = document.querySelectorAll('.nav-item');
     navItems.forEach(item => item.classList.remove('active'));
 
-    // mostrar la seccion seleccionada y activar su boton
+    
     const targetSection = document.getElementById(`section-${sectionName}`);
     const targetNav = document.getElementById(`nav-${sectionName}`);
 
@@ -238,7 +238,7 @@ function showSection(sectionName) {
         targetNav.classList.add('active');
     }
 
-    // Si entra a la seccion del carrito actualiza la vista
+    
     if (sectionName === 'cart') {
         toggleCartModal();
     }
@@ -310,7 +310,7 @@ function checkout() {
     }
 }
 
-//-------------- CERRAR SESIÓN --------------//
+
 function logOut() {
     localStorage.removeItem("catalogDB");
     localStorage.removeItem("userLogged");

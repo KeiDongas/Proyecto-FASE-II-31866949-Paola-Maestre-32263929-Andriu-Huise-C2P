@@ -1,4 +1,4 @@
-/* Reset básico */
+
 * {
     margin: 0;
     padding: 0;
@@ -16,7 +16,7 @@ body {
     min-height: 100vh;
 }
 
-/* Sidebar */
+
 .sidebar {
     width: 250px;
     height: 100vh;
@@ -72,7 +72,7 @@ body {
     background-color: rgba(255, 255, 255, 0.15);
 }
 
-/* Main Content */
+
 .main-content {
     flex: 1;
     padding: 30px;
@@ -109,7 +109,7 @@ body {
     box-shadow: 0 4px 15px rgba(242, 145, 163, 0.3);
 }
 
-/* Cards & Grid */
+
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -135,7 +135,7 @@ body {
     color: #F291A3;
 }
 
-/* Products */
+
 .products-section h2 {
     margin-bottom: 20px;
 }
@@ -163,7 +163,7 @@ body {
 
 .product-image {
     height: 140px;
-    /*background-color: rgb(255, 255, 255);*/
+    
     border-radius: 8px;
     background-image: url('../assets/products/teclado.jpg');
     background-size: contain;
@@ -260,7 +260,7 @@ body {
     padding-right: 5px;
 }
 
-/* Ítem individual en el carrito */
+
 .cart-item {
     display: flex;
     align-items: center;
@@ -323,7 +323,7 @@ body {
     font-size: 1rem;
 }
 
-/* Estilos para formularios (reutilizados del login) */
+
 .input-container {
     display: flex;
     flex-direction: column;
