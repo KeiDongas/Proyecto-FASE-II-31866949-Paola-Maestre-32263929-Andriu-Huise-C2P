@@ -52,6 +52,10 @@ function saveCatalog() {
 }
 
 function publishArticle() {
+    if (userRol !== "Seller") {
+        alert("Solo los vendedores pueden publicar artículos.");
+        return;
+    }
     const name = document.getElementById("pub-name").value.trim();
     const price = parseFloat(document.getElementById("pub-price").value);
     const stock = parseInt(document.getElementById("pub-stock").value, 10);
@@ -79,6 +83,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const usernameElement = document.getElementById("username-display");
     if (usernameElement) {
         usernameElement.textContent = userLogged;
+    }
+
+    // Solo el vendedor ve la opción de publicar
+    const navPublish = document.getElementById("nav-publish");
+    if (navPublish && userRol !== "Seller") {
+        navPublish.style.display = "none";
     }
 
     renderProducts();
